@@ -1,0 +1,50 @@
+<div class="fondo">
+  <div class="form">
+    <div class="titulo-juegos">
+      SALA DE JUEGOS
+    </div>
+    <form class="login-form">
+      <input type="email" 
+        placeholder="Email" 
+        [(ngModel)]="email"
+        name="email"
+        required/>
+
+      <input type="text" 
+        placeholder="Nombre" 
+        [(ngModel)]="nombre"
+        name="nombre"
+        required/>
+
+      <input type="text" 
+        placeholder="Apellido" 
+        [(ngModel)]="apellido"
+        name="apellido"
+        required/>
+
+      <input type="number" 
+        placeholder="Edad" 
+        [(ngModel)]="edad"
+        name="edad"
+        required/>
+
+      <input type="password" 
+        placeholder="Password" 
+        [(ngModel)]="password"
+        name="password"
+        required/>
+      
+      <button type="button" (click)="registrarse()">Registrarse</button>
+    </form>
+
+    <div class="text-center mt-6">
+      <p class="text-gray-600">¿Ya estás registrado?</p>
+      <button
+        (click)="irAlInicioSesion()"
+        class="text-purple-500 hover:underline mt-2"
+      >
+        Logueate acá
+      </button>
+    </div>
+  </div>
+</div>
