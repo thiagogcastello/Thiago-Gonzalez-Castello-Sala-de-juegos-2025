@@ -25,9 +25,9 @@ export class LoginComponent {
 
   auth = inject(AuthService);
   async logIn(){
+    this.errorMessage = '';
     try{
       const {data, error} = await this.auth.iniciarSesion(this.email, this.password);
-      this.errorMessage = '';
       if (error) {
         this.errorMessage = 'Error al iniciar sesión. Por favor, revisa tus credenciales.';
         console.log('Login error:', error.message);
@@ -42,6 +42,7 @@ export class LoginComponent {
     this.router.navigate(['/registro']);
   }
   completarUsuario(email: string, password: string) {
+    this.errorMessage = '';
     this.email = email;
     this.password = password;
     this.cdr.detectChanges();
