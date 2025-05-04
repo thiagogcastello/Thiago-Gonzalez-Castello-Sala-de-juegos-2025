@@ -1,44 +1,39 @@
 <div class="fondo">
   <div class="contenedor-juegos">
     <div class="tarjeta-juego">
-      <img
-        src="ruta-del-juego.png"
-        alt="Nombre del juego"
-        class="imagen-juego"
-      />
-      <h3 class="titulo-juego">Ahorcado</h3>
-      <p class="descripcion-juego">Juego clásico de adivinanza por letras.</p>
-      <button class="btn-jugar">Jugar</button>
+      <img src="assets/img/preguntados.png" class="imagen-juego" />
+      <h3 class="titulo-juego">Preguntados</h3>
+      <p class="descripcion-juego">Descripcion</p>
+      <button class="btn-jugar" [routerLink]="['/juegos/preguntados']">
+        Jugar
+      </button>
     </div>
+
     <div class="tarjeta-juego">
-      <img
-        src="ruta-del-juego.png"
-        alt="Nombre del juego"
-        class="imagen-juego"
-      />
-      <h3 class="titulo-juego">Ahorcado</h3>
-      <p class="descripcion-juego">Juego clásico de adivinanza por letras.</p>
-      <button class="btn-jugar">Jugar</button>
+      <img src="assets/img/mayormenor.png" class="imagen-juego" />
+      <h3 class="titulo-juego">Mayor Menor</h3>
+      <p class="descripcion-juego">Descripcion</p>
+      <button class="btn-jugar" [routerLink]="['/juegos/mayor-menor']">
+        Jugar
+      </button>
     </div>
+
     <div class="tarjeta-juego">
-      <img
-        src="ruta-del-juego.png"
-        alt="Nombre del juego"
-        class="imagen-juego"
-      />
+      <img src="assets/img/ahorcado.png" class="imagen-juego" />
       <h3 class="titulo-juego">Ahorcado</h3>
-      <p class="descripcion-juego">Juego clásico de adivinanza por letras.</p>
-      <button class="btn-jugar">Jugar</button>
+      <p class="descripcion-juego">Descripcion</p>
+      <button class="btn-jugar" [routerLink]="['/juegos/ahorcado']">
+        Jugar
+      </button>
     </div>
+
     <div class="tarjeta-juego">
-      <img
-        src="ruta-del-juego.png"
-        alt="Nombre del juego"
-        class="imagen-juego"
-      />
-      <h3 class="titulo-juego">Ahorcado</h3>
-      <p class="descripcion-juego">Juego clásico de adivinanza por letras.</p>
-      <button class="btn-jugar">Jugar</button>
+      <img src="assets/img/reaccion.png" class="imagen-juego" />
+      <h3 class="titulo-juego">Juego de reaccion</h3>
+      <p class="descripcion-juego">Descripcion</p>
+      <button class="btn-jugar" [routerLink]="['/juegos/reaccion']">
+        Jugar
+      </button>
     </div>
   </div>
 </div>

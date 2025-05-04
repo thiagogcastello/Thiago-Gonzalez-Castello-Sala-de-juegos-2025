@@ -3,56 +3,54 @@
     <div class="titulo-juegos">SALA DE JUEGOS</div>
 
     <form class="register-form">
-      <input 
-        type="email" 
-        placeholder="Email" 
-        [(ngModel)]="email" 
-        name="email" 
-        required />
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
 
-      <input 
-        type="text" 
-        placeholder="Nombre" 
-        [(ngModel)]="nombre" 
-        name="nombre" 
-        required />
+      <input
+        type="text"
+        placeholder="Nombre"
+        [(ngModel)]="nombre"
+        name="nombre"
+        required
+      />
 
-      <input 
-        type="text" 
-        placeholder="Apellido" 
-        [(ngModel)]="apellido" 
-        name="apellido" 
-        required />
+      <input
+        type="text"
+        placeholder="Apellido"
+        [(ngModel)]="apellido"
+        name="apellido"
+        required
+      />
 
-      <input 
-        type="number" 
-        placeholder="Edad" 
-        [(ngModel)]="edad" 
-        name="edad" 
-        required />
+      <input
+        type="number"
+        placeholder="Edad"
+        [(ngModel)]="edad"
+        name="edad"
+        required
+      />
 
-      <input 
-        type="password" 
-        placeholder="Contraseña" 
-        [(ngModel)]="password" 
-        name="password" 
-        required />
+      <input
+        type="password"
+        placeholder="Contraseña"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
 
-      <button 
-        type="button" 
-        class="btn-principal" 
-        (click)="registrarse()"
-      >
+      <button type="button" class="btn-principal" (click)="registrarse()">
         Registrarse
       </button>
     </form>
 
     <div class="registro-link">
       <p>¿Ya estás registrado?</p>
-      <button 
-        (click)="irAlInicioSesion()" 
-        class="registro-boton"
-      >
+      <button [routerLink]="['/login']" class="registro-boton">
         Logueate acá
       </button>
     </div>
