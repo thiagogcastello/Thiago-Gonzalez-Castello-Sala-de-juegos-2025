@@ -3,12 +3,11 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-login',
   imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   email: string = '';
@@ -24,18 +23,23 @@ export class LoginComponent {
   }
 
   auth = inject(AuthService);
-  async logIn(){
+  async logIn() {
     this.errorMessage = '';
-    try{
-      const {data, error} = await this.auth.iniciarSesion(this.email, this.password);
+    try {
+      const { data, error } = await this.auth.iniciarSesion(
+        this.email,
+        this.password
+      );
       if (error) {
-        this.errorMessage = 'Error al iniciar sesión. Por favor, revisa tus credenciales.';
+        this.errorMessage =
+          'Error al iniciar sesión. Por favor, revisa tus credenciales.';
         console.log('Login error:', error.message);
         return;
       }
-    }catch(error: any){
+    } catch (error: any) {
       console.log('Error capturado:', error);
-      this.errorMessage = 'Error al iniciar sesión. Por favor, revisa tus credenciales.';
+      this.errorMessage =
+        'Error al iniciar sesión. Por favor, revisa tus credenciales.';
     }
   }
   irAlRegistro() {
@@ -47,5 +51,4 @@ export class LoginComponent {
     this.password = password;
     this.cdr.detectChanges();
   }
-  
 }

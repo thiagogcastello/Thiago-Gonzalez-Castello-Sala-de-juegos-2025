@@ -1,15 +1,6 @@
 <div class="fondo">
   <div class="form">
-    <div class="titulo-juegos">
-      SALA DE JUEGOS
-    </div>
-
-    <form class="register-form">
-      <input type="text" placeholder="name" />
-      <input type="password" placeholder="password" />
-      <input type="text" placeholder="email address" />
-      <button type="button">create</button>
-    </form>
+    <div class="titulo-juegos">SALA DE JUEGOS</div>
 
     <form class="login-form">
       <input
@@ -21,29 +12,29 @@
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         [(ngModel)]="password"
         name="password"
         required
       />
-      <button type="button" (click)="logIn()">Iniciar Sesión</button>
+      <button type="button" class="btn-principal" (click)="logIn()">Iniciar Sesión</button>
 
       @if (errorMessage) {
-      <div class="error-message">
-        {{ errorMessage }}
-      </div>
+      <div class="error-message">{{ errorMessage }}</div>
       }
     </form>
 
-    <button type="button" (click)="completarUsuario('tgc99tgc@gmail.com', '123456')">
+    <button
+      type="button"
+      class="btn-secundario"
+      (click)="completarUsuario('tgc99tgc@gmail.com', '123456')"
+    >
       Autocompletar usuario
     </button>
 
     <div class="registro-link">
       <p>¿Todavía no estás registrado?</p>
-      <button (click)="irAlRegistro()" class="registro-boton">
-        Regístrate acá
-      </button>
+      <button (click)="irAlRegistro()" class="registro-boton">Regístrate acá</button>
     </div>
   </div>
 </div>

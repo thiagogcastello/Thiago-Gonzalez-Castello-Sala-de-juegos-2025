@@ -1,16 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300');
-
 body {
   font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
+  background: linear-gradient(147deg, #fbff22 10%, #991cff 80%);
   margin: 0;
   padding: 0;
 }
 
 .fondo {
-  background: linear-gradient(147deg, #fbff22 10%, #991cff 80%);
   min-height: 90vh;
   display: flex;
   justify-content: center;
@@ -19,23 +14,20 @@ body {
 }
 
 .form {
-  background: #FFFFFF;
+  background: #ffffff;
   max-width: 360px;
   width: 100%;
-  margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
+  border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2),
               0 5px 5px rgba(0, 0, 0, 0.24);
-  border-radius: 20px;
-  position: relative;
-  z-index: 1;
 }
 
 .titulo-juegos {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .form input {
@@ -50,37 +42,44 @@ body {
   box-sizing: border-box;
 }
 
-.form button,
-.registro-boton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
-  font-weight: 500;
+.btn-principal {
   background-color: #6521a5;
   color: white;
+  font-weight: 500;
+  padding: 12px;
   border: none;
   border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s ease;
 }
 
-.form button:hover,
-.registro-boton:hover {
+.btn-principal:hover {
   background-color: #af37ff;
   transform: scale(1.05);
 }
 
-.register-form {
-  display: none;
+.btn-secundario {
+  background-color: #7e22ce;
+  color: white;
+  font-weight: 500;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  margin-top: 15px;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.btn-secundario:hover {
+  background-color: #a855f7;
+  transform: scale(1.05);
 }
 
 .error-message {
   color: #ef4444;
   text-align: center;
-  margin-bottom: 16px;
+  margin: 10px 0;
   font-size: 14px;
 }
 
@@ -100,6 +99,9 @@ body {
   color: #7e22ce;
   font-weight: 500;
   text-decoration: underline;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
 }
 
 .registro-boton:hover {
