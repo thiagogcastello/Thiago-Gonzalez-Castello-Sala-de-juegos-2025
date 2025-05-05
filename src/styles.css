@@ -1,5 +1,5 @@
 .fondo {
-  background: linear-gradient(147deg, #fbff22 10%, #991cff 80%);
+  background: linear-gradient(to bottom right, #fcd34d, #a855f7);
   min-height: 90vh;
   display: flex;
   justify-content: center;

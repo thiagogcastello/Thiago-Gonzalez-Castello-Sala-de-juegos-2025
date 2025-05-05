@@ -1,1 +1,30 @@
-<div class="fondo"><p>chat works!</p></div>
+<div class="fondo">
+  <div class="chat-wrapper">
+    <div class="chat-box" #chatBox>
+      @for (m of mensajes(); track m.id) {
+      <div
+        class="mensaje"
+        [class.mio]="m.id_usuario == miUsuario?.id"
+        [class.otro]="m.id_usuario != miUsuario?.id"
+      >
+        <div class="contenido">
+          <p class="meta">
+            {{
+              m.created_at +
+                " - " +
+                m.usuarios.nombre +
+                " " +
+                m.usuarios.apellido
+            }}
+          </p>
+          <p class="texto">{{ m.mensaje }}</p>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="chat-input">
+      <input [(ngModel)]="mensaje" placeholder="Escribí un mensaje..." />
+      <button (click)="enviar()">Enviar</button>
+    </div>
+  </div>
+</div>
