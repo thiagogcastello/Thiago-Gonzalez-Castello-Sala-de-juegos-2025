@@ -1,0 +1,9 @@
+.fondo {
+    background: linear-gradient(to bottom right, #fcd34d, #a855f7);
+    height: calc(100vh - 149px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }

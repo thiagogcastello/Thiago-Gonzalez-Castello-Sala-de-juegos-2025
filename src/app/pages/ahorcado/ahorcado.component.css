@@ -1,10 +1,11 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: sans-serif;
-  background-color: #f3f4f6;
+.fondo {
+  background: linear-gradient(to bottom right, #fcd34d, #a855f7);
+  height: calc(100vh - 149px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .contenedor {
@@ -13,7 +14,7 @@ html {
   padding: 2rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 1100px;
+  max-width: 80vh;
   box-sizing: border-box;
 }
 

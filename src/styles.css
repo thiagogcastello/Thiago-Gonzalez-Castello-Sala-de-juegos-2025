@@ -1,6 +1,6 @@
 .fondo {
   background: linear-gradient(to bottom right, #fcd34d, #a855f7);
-  min-height: 90vh;
+  height: calc(100vh - 74px);
   display: flex;
   justify-content: center;
   align-items: center;
