@@ -1,0 +1,134 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  background-color: #f3f4f6;
+}
+
+.contenedor {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+.contenedor h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #4c1d95;
+}
+
+.juego-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.imagen-ahorcado {
+  width: 240px;
+  max-width: 30vw;
+  height: auto;
+}
+
+.word-container {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  flex: 1;
+  text-align: center;
+}
+
+.word-container p {
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 6px;
+  margin: 0;
+}
+
+.word-container span {
+  display: inline-block;
+  min-width: 20px;
+  border-bottom: 2px solid #4c1d95;
+  margin: 0 2px;
+  font-size: 1.5rem;
+}
+
+.keyboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 2rem;
+  max-width: 100%;
+}
+
+.keyboard-container button {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.keyboard-container button:hover {
+  background-color: #6d28d9;
+}
+
+.keyboard-container button:disabled {
+  background-color: #d1d5db;
+  color: #9ca3af;
+  cursor: default;
+}
+
+.status-container {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #1f2937;
+}
+
+.mt-4 .btn {
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mt-4 .btn:hover {
+  background-color: #6d28d9;
+}
+
+@media (max-width: 900px) {
+  .juego-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen-ahorcado {
+    max-width: 50vw;
+  }
+
+  .word-container {
+    letter-spacing: 6px;
+    font-size: 1.5rem;
+  }
+}

@@ -1,3 +1,32 @@
 <div class="fondo">
-  <p>ahorcado works!</p>
+  <div class="contenedor">
+    <h1>Ahorcado</h1>
+    <div class="juego-container">
+      <img [src]="'assets/ahorcado/ahoracado-' + errores + '.png'" alt="Ahorcado" class="imagen-ahorcado">
+  
+      <div class="word-container">
+        <p>
+          <span *ngFor="let letter of palabraDisplay">{{ letter }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="keyboard-container">
+      <button
+        *ngFor="let letra of abecedario"
+        (click)="ingresarLetra(letra)"
+        [disabled]="letrasUsadas.includes(letra) || juegoTerminado"
+      >
+        {{ letra }}
+      </button>
+    </div>
+
+    <div class="status-container">
+      <p>Errores: {{ errores }} / 6</p>
+    </div>
+
+    <div class="mt-4">
+      <button class="btn" (click)="resetGame()">Reiniciar Juego</button>
+    </div>
+  </div>
 </div>
