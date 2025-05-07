@@ -2,11 +2,14 @@
   <div class="contenedor">
     <h1>Ahorcado</h1>
     <div class="juego-container">
-      <img [src]="'assets/ahorcado/ahoracado-' + errores + '.png'" alt="Ahorcado" class="imagen-ahorcado">
+      <img [src]="juegoGanado ? 'assets/ahorcado/ahoracado-salvado.png' : 'assets/ahorcado/ahoracado-' + errores + '.png'" alt="Ahorcado" class="imagen-ahorcado">
   
       <div class="word-container">
         <p>
           <span *ngFor="let letter of palabraDisplay">{{ letter }}</span>
+        </p>
+        <p *ngIf="errores >= 6 && juegoTerminado" class="palabra-perdida">
+          La palabra era: <strong>{{ palabra }}</strong>
         </p>
       </div>
     </div>

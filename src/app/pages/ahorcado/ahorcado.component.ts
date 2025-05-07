@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { PALABRAS } from './palabras';
 
 @Component({
   selector: 'app-ahorcado',
@@ -10,11 +11,12 @@ import Swal from 'sweetalert2';
 })
 export class AhorcadoComponent {
   abecedario: string[] = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
-  palabra: string = 'HOLAMUNDO';
+  palabra: string = PALABRAS[Math.floor(Math.random() * PALABRAS.length)];
   palabraDisplay: string[] = [];
   letrasUsadas: string[] = [];
   errores = 0;
   juegoTerminado: boolean = false;
+  juegoGanado: boolean = false;
 
 
   constructor() {
@@ -50,6 +52,7 @@ export class AhorcadoComponent {
       });
     } else if (this.palabraDisplay.join('') === this.palabra) {
       this.juegoTerminado = true;
+      this.juegoGanado = true;
       Swal.fire({
         title: "BIEN!",
         text: "Lo salvaste!",
@@ -63,7 +66,8 @@ export class AhorcadoComponent {
     this.letrasUsadas = [];
     this.errores = 0;
     this.juegoTerminado = false;
-    this.palabra = 'HOLAMUNDO';
+    this.juegoGanado = false;
+    this.palabra = PALABRAS[Math.floor(Math.random() * PALABRAS.length)];
     this.palabraDisplay = this.palabra.split('').map(() => '_');
   }
 }
