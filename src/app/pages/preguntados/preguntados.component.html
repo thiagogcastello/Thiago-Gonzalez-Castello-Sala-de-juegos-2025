@@ -1,1 +1,36 @@
-<div class="fondo"><p>preguntados works!</p></div>
+<div class="fondo">
+  <div class="contenedor">
+    <h2 class="pregunta" [innerHTML]="preguntaActual"></h2>
+    <div class="informacion">
+      <p><strong>Vidas restantes:</strong> {{ vidasRestantes }}</p>
+      <p><strong>Puntos:</strong> {{ puntuacion }}</p>
+    </div>
+    <div class="opciones">
+      <button
+        *ngFor="let opcion of respuestasMezcladas"
+        (click)="seleccionarRespuesta(opcion)"
+        [innerHTML]="opcion"
+        [ngClass]="{
+          correcta: respuestaElegida && opcion == respuestaCorrecta,
+          incorrecta:
+            respuestaElegida &&
+            opcion == respuestaElegida &&
+            opcion !== respuestaCorrecta
+        }"
+        [disabled]="respuestaElegida !== ''"
+      ></button>
+    </div>
+    <div class="botones-juego">
+      <button class="siguiente" (click)="reiniciarJuego()">
+        Reiniciar Juego
+      </button>
+      <button
+        class="siguiente"
+        (click)="siguientePregunta()"
+        *ngIf="respuestaElegida !== ''"
+      >
+        Siguiente Pregunta
+      </button>
+    </div>
+  </div>
+</div>

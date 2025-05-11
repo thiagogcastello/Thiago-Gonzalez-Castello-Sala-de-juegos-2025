@@ -15,4 +15,11 @@ export class HttpService {
     );
     return observable;
   }
+
+  traerPreguntas() {
+    const observable = this.httpClient.get<any>(
+      'https://opentdb.com/api.php?amount=50&type=multiple'
+    );
+    return observable;
+  }
 }
