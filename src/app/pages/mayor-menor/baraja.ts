@@ -1,21 +1,4 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-interface Carta {
-  nombre: string;
-  palo: string;
-  ranking: number;
-}
-
-@Component({
-  selector: 'app-mayor-menor',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './mayor-menor.component.html',
-  styleUrl: './mayor-menor.component.css',
-})
-export class MayorMenorComponent {
-  baraja: Carta[] = [
+ export const BARAJA: string[] = [
     { nombre: '4', palo: 'copa', ranking: 0 },
     { nombre: '4', palo: 'oro', ranking: 1 },
     { nombre: '4', palo: 'basto', ranking: 2 },
@@ -55,59 +38,5 @@ export class MayorMenorComponent {
     { nombre: '7', palo: 'oro', ranking: 36 },
     { nombre: '7', palo: 'espada', ranking: 37 },
     { nombre: '1', palo: 'basto', ranking: 38 },
-    { nombre: '1', palo: 'espada', ranking: 39 },
+    { nombre: '1', palo: 'espada', ranking: 39 }
   ];
-
-  cartaActual: Carta | null = null;
-  proximaCarta: Carta | null = null;
-  resultado: boolean | null = null;
-  opcionElegida: 'mayor' | 'menor' | null = null;
-  puntuacion: number = 0;
-  vidasRestantes: number = 3;
-  juegoTerminado: boolean = false;
-
-  constructor() {
-    this.seleccionarCartaInicial();
-  }
-
-  seleccionarCartaInicial() {
-    const indice = Math.floor(Math.random() * this.baraja.length);
-    this.cartaActual = this.baraja.splice(indice, 1)[0];
-  }
-
-  adivinar(opcion: 'mayor' | 'menor') {
-    if (this.baraja.length === 0 || !this.cartaActual || this.juegoTerminado)
-      return;
-
-    const indice = Math.floor(Math.random() * this.baraja.length);
-    this.proximaCarta = this.baraja.splice(indice, 1)[0];
-
-    this.opcionElegida = opcion;
-
-    if (opcion === 'mayor') {
-      this.resultado = this.proximaCarta.ranking > this.cartaActual.ranking;
-    } else {
-      this.resultado = this.proximaCarta.ranking < this.cartaActual.ranking;
-    }
-
-    if (!this.resultado) {
-      this.vidasRestantes--;
-    }else{
-      this.puntuacion ++;
-    }
-
-    if (this.vidasRestantes == 0) {
-      this.juegoTerminado = true;
-    }
-
-    this.cartaActual = this.proximaCarta;
-  }
-
-  reiniciarJuego() {
-    this.vidasRestantes = 3;
-    this.puntuacion = 0;
-    this.juegoTerminado = false;
-    this.resultado = null;
-    this.seleccionarCartaInicial();
-  }
-}

@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  auth = inject(AuthService);
   email: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -24,7 +25,6 @@ export class LoginComponent {
     this.errorMessage = '';
   }
 
-  auth = inject(AuthService);
   async logIn() {
     this.errorMessage = '';
     try {
@@ -44,9 +44,11 @@ export class LoginComponent {
         'Error al iniciar sesión. Por favor, revisa tus credenciales.';
     }
   }
+
   irAlRegistro() {
     this.router.navigate(['/registro']);
   }
+
   completarUsuario(email: string, password: string) {
     this.errorMessage = '';
     this.email = email;

@@ -1,3 +1,54 @@
 <div class="fondo">
-    <p>mayor-menor works!</p>
+  <div class="contenedor">
+    <h1>¿Mayor o Menor?</h1>
+
+    <div class="juego-container">
+      <div class="informacion">
+        <p><strong>Vidas restantes:</strong> {{ vidasRestantes }}</p>
+        <p><strong>Puntos:</strong> {{ puntuacion }}</p>
+      </div>
+
+      <div class="cartas">
+        <div class="carta">
+          <span class="valor-arriba">{{ cartaActual?.nombre }}</span>
+          <img
+            *ngIf="cartaActual?.palo"
+            [src]="'assets/palos/' + cartaActual!.palo + '.png'"
+            alt="{{ cartaActual!.palo }}"
+            class="icono-palo"
+          />
+          <span class="valor-abajo">{{ cartaActual?.nombre }}</span>
+        </div>
+
+        <div class="carta siguiente">
+          <span class="interrogacion">??</span>
+        </div>
+      </div>
+
+      <div class="botones" *ngIf="!juegoTerminado">
+        <button (click)="adivinar('menor')">Menor</button>
+        <button (click)="adivinar('mayor')">Mayor</button>
+      </div>
+
+      <div class="resultado">
+        <p *ngIf="resultado === true" class="correcto">✅ Correcto!</p>
+        <p *ngIf="resultado === false" class="incorrecto">❌ Incorrecto!</p>
+        <p
+          *ngIf="resultado === null"
+          style="visibility: hidden"
+        >
+          este texto no se ve, asi q puedo poner lo q quiera xd
+        </p>
+      </div>
+
+      <div *ngIf="juegoTerminado" class="resultado">
+        <p class="perdiste">
+          Tu puntuación final fue: {{ puntuacion }}
+        </p>
+      </div>
+      <button class="reiniciar" (click)="reiniciarJuego()">
+        Reiniciar Juego
+      </button>
+    </div>
+  </div>
 </div>

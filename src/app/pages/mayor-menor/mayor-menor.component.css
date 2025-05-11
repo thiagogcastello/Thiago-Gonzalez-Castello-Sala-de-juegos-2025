@@ -1,9 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
 .fondo {
-    background: linear-gradient(to bottom right, #fcd34d, #a855f7);
-    height: calc(100vh - 149px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-  }
+  background: linear-gradient(to bottom right, #fcd34d, #a855f7);
+  height: calc(100vh - 149px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contenedor {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 80vh;
+  box-sizing: border-box;
+}
+
+.contenedor h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: #4c1d95;
+  font-weight: 600;
+}
+
+.juego-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.informacion {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.cartas {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.carta {
+  width: 110px;
+  height: 160px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  font-family: "Georgia", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.carta:hover {
+  transform: scale(1.05);
+}
+
+.carta.siguiente {
+  border: 2px dashed #bbb;
+}
+
+.valor-arriba,
+.valor-abajo {
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.valor-arriba {
+  top: 10px;
+  left: 10px;
+}
+
+.valor-abajo {
+  bottom: 10px;
+  right: 10px;
+}
+
+.palo {
+  font-size: 2.7rem;
+  color: #444;
+}
+
+.palo.grande {
+  font-size: 3.8rem;
+}
+
+.interrogacion {
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #777;
+}
+
+.botones {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.botones button {
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #9333ea;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botones button:hover {
+  background-color: #7e22ce;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.resultado {
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.resultado .correcto {
+  color: #16a34a;
+}
+
+.resultado .incorrecto {
+  color: #dc2626;
+}
+
+.resultado .perdiste {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.icono-palo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+.reiniciar {
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #16a34a;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reiniciar:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
