@@ -17,7 +17,7 @@
             opcion == respuestaElegida &&
             opcion !== respuestaCorrecta
         }"
-        [disabled]="respuestaElegida !== ''"
+        [disabled]="respuestaElegida !== '' || vidasRestantes <= 0"
       ></button>
     </div>
     <div class="botones-juego">
@@ -27,7 +27,7 @@
       <button
         class="siguiente"
         (click)="siguientePregunta()"
-        *ngIf="respuestaElegida !== ''"
+        *ngIf="respuestaElegida !== '' && vidasRestantes > 0"
       >
         Siguiente Pregunta
       </button>
