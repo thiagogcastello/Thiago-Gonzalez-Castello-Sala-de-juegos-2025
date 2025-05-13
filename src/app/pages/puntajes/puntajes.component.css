@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(to bottom right, #fcd34d, #a855f7);
+}
+
+.fondo {
+  background: linear-gradient(to bottom right, #fcd34d, #a855f7);
+  height: calc(100vh - 74px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 300px;
+  box-sizing: border-box;
+  
+}
+
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  max-width: 90vw;
+  width: 100%;
+  box-sizing: border-box;
+  
+}
+
+.tarjeta {
+  background-color: #f9fafb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-tarjeta {
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.grupo-ahorcado .header-tarjeta {
+  background-color: #8b5cf6;
+}
+
+.grupo-mayormenor .header-tarjeta {
+  background-color: #0ea5e9;
+}
+
+.grupo-preguntados .header-tarjeta {
+  background-color: #10b981;
+}
+
+.grupo-reaccion .header-tarjeta {
+  background-color: #ef4444;
+}
+
+.tabla-puntajes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-puntajes th,
+.tabla-puntajes td {
+  padding: 0.6rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.tabla-puntajes th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.tabla-puntajes tr:last-child td {
+  border-bottom: none;
+}

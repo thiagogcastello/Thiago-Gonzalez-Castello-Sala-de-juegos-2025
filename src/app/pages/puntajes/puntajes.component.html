@@ -1,0 +1,91 @@
+<div class="fondo">
+  <div class="contenedor-grid">
+    <div class="tarjeta grupo-ahorcado">
+      <div class="header-tarjeta">AHORCADO</div>
+      <table class="tabla-puntajes">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugador of ahorcado; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ jugador.usuarios.nombre }} {{ jugador.usuarios.apellido }}
+            </td>
+            <td>{{ jugador.puntaje }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tarjeta grupo-mayormenor">
+      <div class="header-tarjeta">MAYOR O MENOR</div>
+      <table class="tabla-puntajes">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugador of mayormenor; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ jugador.usuarios.nombre }} {{ jugador.usuarios.apellido }}
+            </td>
+            <td>{{ jugador.puntaje }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tarjeta grupo-preguntados">
+      <div class="header-tarjeta">PREGUNTADOS</div>
+      <table class="tabla-puntajes">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugador of preguntados; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ jugador.usuarios.nombre }} {{ jugador.usuarios.apellido }}
+            </td>
+            <td>{{ jugador.puntaje }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tarjeta grupo-reaccion">
+      <div class="header-tarjeta">REACCIÓN</div>
+      <table class="tabla-puntajes">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugador of reaccion; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ jugador.usuarios.nombre }} {{ jugador.usuarios.apellido }}
+            </td>
+            <td>{{ jugador.puntaje }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

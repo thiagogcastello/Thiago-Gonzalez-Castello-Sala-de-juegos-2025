@@ -9,6 +9,7 @@ import { MayorMenorComponent } from './pages/mayor-menor/mayor-menor.component';
 import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
 import { AhorcadoComponent } from './pages/ahorcado/ahorcado.component';
 import { ReaccionComponent } from './pages/reaccion/reaccion.component';
+import { PuntajesComponent } from './pages/puntajes/puntajes.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
         {path: 'preguntados', component: PreguntadosComponent},
         {path: 'reaccion', component: ReaccionComponent},
     ],
+  },
+  {
+    path: 'puntajes',
+    component: PuntajesComponent,
   },
   {
     path: '**',

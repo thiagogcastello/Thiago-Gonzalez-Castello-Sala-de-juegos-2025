@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { SupabaseService } from '../../services/supabase.service';
+import { AuthService } from '../../services/auth.service';
+import { User } from '@supabase/supabase-js';
 
 @Component({
   selector: 'app-preguntados',
@@ -11,6 +14,9 @@ import Swal from 'sweetalert2';
 })
 export class PreguntadosComponent {
   httpService = inject(HttpService);
+  supabaseService = inject(SupabaseService);
+  authService = inject(AuthService);
+  miUsuario: User | null = null;
   preguntaActual = '';
   respuestaCorrecta = '';
   respuestasIncorrectas: string[] = [];
@@ -21,11 +27,17 @@ export class PreguntadosComponent {
   vidasRestantes: number = 3;
   puntuacion: number = 0;
 
-  ngOnInit() {
+  async ngOnInit() {
     this.httpService.traerPreguntas().subscribe((datos) => {
       this.preguntas = datos['results'];
       this.mostrarPreguntaActual();
     });
+    const email = await this.authService.obtenerUsuarioActual();
+    if (email) {
+      const usuario = await this.supabaseService.traerUsuarioPorEmail(email);
+      this.miUsuario = usuario;
+      console.log(this.miUsuario);
+    }
   }
 
   mostrarPreguntaActual() {
@@ -61,6 +73,7 @@ export class PreguntadosComponent {
     return array.sort(() => Math.random() - 0.5);
   }
 
+
   seleccionarRespuesta(opcion: string) {
     this.respuestaElegida = opcion;
     if (this.respuestaElegida == this.respuestaCorrecta) {
@@ -75,6 +88,7 @@ export class PreguntadosComponent {
         icon: 'error',
         confirmButtonText: 'Ok',
       });
+      this.supabaseService.guardarPuntuacion(Number(this.miUsuario?.id), this.puntuacion, 'Preguntados');
     }
   }
 
@@ -83,6 +97,7 @@ export class PreguntadosComponent {
     this.puntuacion = 0;
     this.respuestaElegida = '';
     this.indicePreguntaActual = 0;
+    this.puntuacion = 0;
     this.httpService.traerPreguntas().subscribe((datos) => {
       this.preguntas = datos['results'];
       this.mostrarPreguntaActual();

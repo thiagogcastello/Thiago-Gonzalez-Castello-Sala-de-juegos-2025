@@ -40,4 +40,47 @@ export class SupabaseService {
       id_usuario: id_usuario,
     });
   }
+
+  async guardarPuntuacion(id_usuario: number, puntaje: number, juego: string) {
+    const { data } = await this.supabase.from('puntajes').insert({
+      id_usuario: id_usuario,
+      puntaje: puntaje,
+      juego: juego,
+    });
+  }
+
+  async traerTop5PorJuego() {
+  const juegos = ['Ahorcado', 'Mayormenor', 'Preguntados', 'Reaccion'];
+  const resultados: any = {};
+
+  for (const juego of juegos) {
+    const { data, error } = await this.supabase
+      .from('puntajes')
+      .select(`
+        id,
+        id_usuario,
+        puntaje,
+        juego,
+        usuarios (
+          nombre,
+          apellido,
+          correo
+        )
+      `)
+      .eq('juego', juego)
+      .order('puntaje', { ascending: false })
+      .limit(5);
+
+    if (error) {
+      console.error(`Error al traer datos para ${juego}`, error);
+      continue;
+    }
+
+    resultados[juego] = data;
+  }
+
+  console.log(resultados);
+  return resultados;
+}
+
 }

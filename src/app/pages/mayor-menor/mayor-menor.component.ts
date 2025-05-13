@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { User } from '@supabase/supabase-js';
+import { AuthService } from '../../services/auth.service';
+import { SupabaseService } from '../../services/supabase.service';
 
 interface Carta {
   nombre: string;
@@ -65,9 +68,18 @@ export class MayorMenorComponent {
   puntuacion: number = 0;
   vidasRestantes: number = 3;
   juegoTerminado: boolean = false;
+  miUsuario: User | null = null;
+  supabaseService = inject(SupabaseService);
+  authService = inject(AuthService);
 
-  constructor() {
+  async ngOnInit() {
     this.seleccionarCartaInicial();
+    const email = await this.authService.obtenerUsuarioActual();
+    if (email) {
+      const usuario = await this.supabaseService.traerUsuarioPorEmail(email);
+      this.miUsuario = usuario;
+      console.log(this.miUsuario);
+    }
   }
 
   seleccionarCartaInicial() {
@@ -92,12 +104,17 @@ export class MayorMenorComponent {
 
     if (!this.resultado) {
       this.vidasRestantes--;
-    }else{
-      this.puntuacion ++;
+    } else {
+      this.puntuacion++;
     }
 
     if (this.vidasRestantes == 0) {
       this.juegoTerminado = true;
+      this.supabaseService.guardarPuntuacion(
+        Number(this.miUsuario?.id),
+        this.puntuacion,
+        'Mayormenor'
+      );
     }
 
     this.cartaActual = this.proximaCarta;
