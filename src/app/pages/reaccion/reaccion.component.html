@@ -1,3 +1,30 @@
 <div class="fondo">
-  <div class="contenedor"><p>reaccion works!</p></div>
+  <div class="contenedor" (click)="mensaje == '' && alternarCronometro()">
+    <h1>Testeá tu reacción</h1>
+
+    <div class="semaforo">
+      <div class="fila">
+        <div class="luz" [ngClass]="{ activo: estado >= 60 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 70 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 80 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 90 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 100 }"></div>
+      </div>
+
+      <div class="fila">
+        <div class="luz" [ngClass]="{ activo: estado >= 5 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 4 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 3 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 2 }"></div>
+        <div class="luz" [ngClass]="{ activo: estado >= 1 }"></div>
+      </div>
+    </div>
+
+    <div class="cronometro">{{ tiempoFormateado }}</div>
+    <p class="mensaje">{{ mensaje }}</p>
+    <p class="iniciar-texto" *ngIf="mensaje == ''">Apretá click para iniciar</p>
+    <button class="reiniciar-boton" (click)="reiniciar($event)">
+      Reiniciar
+    </button>
+  </div>
 </div>

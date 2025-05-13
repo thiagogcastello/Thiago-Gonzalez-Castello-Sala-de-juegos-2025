@@ -93,15 +93,15 @@ export class PreguntadosComponent {
   }
 
   reiniciarJuego() {
+    this.httpService.traerPreguntas().subscribe((datos) => {
+      this.preguntas = datos['results'];
+      this.mostrarPreguntaActual();
+    });
     this.vidasRestantes = 3;
     this.puntuacion = 0;
     this.respuestaElegida = '';
     this.indicePreguntaActual = 0;
     this.puntuacion = 0;
-    this.httpService.traerPreguntas().subscribe((datos) => {
-      this.preguntas = datos['results'];
-      this.mostrarPreguntaActual();
-    });
   }
 
   decodeHtml(html: string): string {

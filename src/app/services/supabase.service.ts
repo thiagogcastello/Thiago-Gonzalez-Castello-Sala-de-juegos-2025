@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { booleanAttribute, Injectable } from '@angular/core';
 import { createClient } from '@supabase/supabase-js';
 
 @Injectable({
@@ -52,8 +52,14 @@ export class SupabaseService {
   async traerTop5PorJuego() {
   const juegos = ['Ahorcado', 'Mayormenor', 'Preguntados', 'Reaccion'];
   const resultados: any = {};
+  let reaccion = false;
 
   for (const juego of juegos) {
+    if(juego == 'Reaccion'){
+      reaccion = true;
+    }else{
+      reaccion = false;
+    }
     const { data, error } = await this.supabase
       .from('puntajes')
       .select(`
@@ -68,13 +74,8 @@ export class SupabaseService {
         )
       `)
       .eq('juego', juego)
-      .order('puntaje', { ascending: false })
-      .limit(5);
-
-    if (error) {
-      console.error(`Error al traer datos para ${juego}`, error);
-      continue;
-    }
+      .order('puntaje', { ascending: reaccion })
+      .limit(5);    
 
     resultados[juego] = data;
   }
