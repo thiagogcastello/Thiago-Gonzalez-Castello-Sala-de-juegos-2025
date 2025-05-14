@@ -62,3 +62,49 @@
   text-align: center;
   max-width: 300px;
 }
+
+.juego-img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.descripcion-juego {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.descripcion-juego h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.descripcion-juego p {
+  font-size: 14px;
+  color: #444;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.boton-juego {
+  margin-top: auto;
+}
+
+.boton-juego button {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton-juego button:hover {
+  background-color: #6d28d9;
+}
